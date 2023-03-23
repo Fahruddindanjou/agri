@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Banner;
+use App\Models\Berita;
+use App\Models\Produk;
+use App\Models\Menu;
+use App\Models\Partner;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        $data['banners'] = Banner::all();
+        $data['menus'] = Menu::orderBy('urutan', 'desc')->get();
+        $data['mainBerita'] = Berita::where('type' , 'main')->get();
+        $data['youtubeBerita'] = Berita::where('type' , 'youtube')->get();
+        $data['pertanianBerita'] = Berita::where('type' , 'pertanian')->get();
+        return view('index',$data);
+    }
+
+    public function tentang_kami()
+    {
+        return view('tentang_kami');
+    }
+
+    public function informasi()
+    {
+        return view('informasi');
+    }
+
+    public function partner()
+    {
+        $data['part'] = Partner::all();
+        return view('partner', $data);
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function detail_berita(Request $request)
+    {
+        $data['detail'] = Berita::find($request->id);
+        return view('detail_berita',$data);
+    }
+
+    public function detail_produk()
+    {
+        return view('detail_produk');
+    }
+
+    public function produk()
+    {
+        $data['produk1'] = Produk::all();
+        return view('produk', $data);
+    }
+
+    public function detail_partner()
+    {
+        return view('detail_partner');
+    }
+
+    public function visi_misi()
+    {
+        return view('visi_misi');
+    }
+
+    public function struktur_organisasi()
+    {
+        return view('struktur_organisasi');
+    }
+
+    public function sejarah()
+    {
+        return view('sejarah');
+    }
+}
