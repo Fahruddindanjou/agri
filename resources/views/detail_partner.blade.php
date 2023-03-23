@@ -1,18 +1,6 @@
-<?php 
+@extends('templates.general')
 
-    // $page = '';
-
-?>
-
-<?php 
-
-    // include 'layouts/header.php'
-    
-
-?>
-<?= $this->extend('templates/general') ?>
-
-<?= $this->section('content') ?>
+@section('content')
 
     <!-- banner -->
 	<div class="banner1 mb-2" style="background-image:url('https://images.unsplash.com/photo-1560693225-b8507d6f3aa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
@@ -38,11 +26,7 @@
     <!-- banner -->
     <!-- content -->
     <div class="container">
-        <?php
 
-            // foreach ($details_partner as $details){
-
-        ?>
         <div  class="mb-1" style="align-items: center;">
             <h2 style="margin-bottom: 6px;"></h2>
             <h4 class="text-green">Kamis, 17 Maret 2023</h4>
@@ -57,17 +41,7 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit accusantium facilis animi obcaecati odit aliquid praesentium aperiam voluptates ipsum aspernatur quidem vero soluta est iste quaerat saepe optio, doloribus repudiandae natus sequi provident? Perferendis, minus at a voluptatum autem iure architecto libero vel amet tempora? Molestias ut blanditiis id hic.</p><br>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto deleniti praesentium molestias numquam quam! Doloremque voluptate impedit minus nesciunt recusandae error cupiditate doloribus maiores architecto tempore! Sit eveniet quaerat esse!</p>
         </div>
-        <?php
-            //}
-        ?>
     </div>
     <!-- end content -->
 <!-- footer -->
-
-    <?= $this->endsection() ?>
-
-<?php 
-
-    // include 'layouts/footer.php'
-
-?>
+@endsection

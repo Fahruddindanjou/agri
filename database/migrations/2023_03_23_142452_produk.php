@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('rating');
             $table->integer('terjual');
             $table->string('url');
-            $table->enum('bestseller',['true','false'])->default('true');
+            $table->enum('bestseller',['best','normal'])->default('best');
             $table->timestamps();
         });
     }

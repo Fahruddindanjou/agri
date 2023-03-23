@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class AdminController extends Controller
 {
@@ -35,7 +36,10 @@ class AdminController extends Controller
 
     public function product()
     {
-        return view('admin.product');
+        $data['produk'] = Produk::all();
+        // $data['best'] = Produk::where('bestseller' , 'best')->get();
+        // $data['nobest'] = Produk::where('bestseller' , 'normal')->get();
+        return view('admin.product', $data);
     }
 
     public function product_add()

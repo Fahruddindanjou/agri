@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\CRUD;
 
 use App\Http\Controllers\Controller;
-use App\Models\Berita;
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
-class BeritaController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data['artikel'] = Berita::all();
-        return view('admin.article',$data);
+        $data['produk'] = Produk::all();
+        return view('admin.product',$data);
     }
 
     /**
@@ -24,8 +24,7 @@ class BeritaController extends Controller
     {
         $data['isEdit'] = false;
         $data['edit'] = null;
-
-        return view('admin.article_add' , $data);
+        return view('admin.product_add' , $data);
     }
 
     /**
@@ -33,12 +32,12 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $berita = new Berita();
+        $berita = new Produk();
         $berita->title = $request->title;
 
         $berita->save();
 
-        return redirect('/admin/article')->with('success' , 'Berhasil menambah berita');
+        return redirect('/admin/product')->with('success' , 'Berhasil menambah berita');
     }
 
     /**
@@ -54,9 +53,9 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        $data['edit'] = Berita::find($id);
+        $data['edit'] = Produk::find($id);
         $data['isEdit'] = true;
-        return view('admin.article_add',$data);
+        return view('admin.product_add',$data);
     }
 
     /**
@@ -64,12 +63,12 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $berita = Berita::find($id);
-        $berita->title = $request->title;
+        $berita = Produk::find($id);
+        $berita->name = $request->name;
 
         $berita->save();
 
-        return redirect('/admin/article')->with('success' , 'Berhasil update berita');
+        return redirect('/admin/product')->with('success' , 'Berhasil update produk');
     }
 
     /**
@@ -77,9 +76,9 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        $delete = Berita::find($id);
+        $delete = Produk::find($id);
         $delete->delete();
 
-        return redirect('/admin/article')->with('success' , 'Success delete data');
+        return redirect('/admin/product')->with('success' , 'Success delete data');
     }
 }

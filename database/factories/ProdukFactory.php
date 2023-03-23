@@ -27,7 +27,7 @@ class ProdukFactory extends Factory
             'rating' => rand(1,10),
             'terjual' => $this->faker->numberBetween(10,100),
             'url' => $this->faker->url,
-            'bestseller' => $this->faker->randomElement(['true', 'false']),
+            'bestseller' => $this->faker->randomElement(['best', 'normal']),
         ];
     }
 }

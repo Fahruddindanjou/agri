@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CRUD\BeritaController;
+use App\Http\Controllers\CRUD\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Berita;
@@ -24,7 +25,7 @@ use App\Models\Berita;
 // home
 Route::get('/' , [HomeController::class , 'index']);
 Route::get('/tentang_kami' , [HomeController::class , 'tentang_kami']);
-Route::get('/produk' , [HomeController::class , 'produk']);
+Route::get('/produk/{id}' , [HomeController::class , 'produk']);
 Route::get('/informasi' , [HomeController::class , 'informasi']);
 Route::get('/partner' , [HomeController::class , 'partner']);
 Route::get('/contact' , [HomeController::class , 'contact']);
@@ -52,6 +53,15 @@ Route::group(['prefix' => '/admin'] , function()
         Route::get('/edit/{id}' , [BeritaController::class , 'edit']);
         Route::post('/edit/{id}' , [BeritaController::class , 'update']);
         Route::get('/delete/{id}' , [BeritaController::class , 'destroy']);
+    });
+
+    Route::group(['prefix' => '/product'] , function(){
+        Route::get('/' , [ProductController::class , 'index']);
+        Route::get('/add' , [ProductController::class, 'create']);
+        Route::post('/add' , [ProductController::class , 'store']);
+        Route::get('/edit/{id}' , [ProductController::class , 'edit']);
+        Route::post('/edit/{id}' , [ProductController::class , 'update']);
+        Route::get('/delete/{id}' , [ProductController::class , 'destroy']);
     });
     // Route::get('/logout',[AuthController::class , 'logout']);
 

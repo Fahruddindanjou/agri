@@ -5,8 +5,12 @@
         <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Product</h3>
-
+                <h3 class="card-title">Artikel</h3>
+                <a class="btn btn-success btn-sm ml-2" name="add" href="{{'/admin/article/add'}}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Tambah Artikel
+                </a>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
