@@ -83,7 +83,7 @@
                                             <img src="images/apel.jpg" class="card-img-top " style="max-height: 50%;">
                                         </div>
                                         <div class="card-body text-left">
-                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;"></p>
+                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;">Rp. {{$produks->harga}}</p>
                                             <p class="fw-bold text-dark" style="margin-bottom: 3px;">  / Ekor</p>
                                             <p class=" text-dark"><i class="fa fa-location-dot"></i> </p>
                                             <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  | rb </p>

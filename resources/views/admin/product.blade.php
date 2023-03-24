@@ -7,7 +7,7 @@
               <div class="card-header">
                 <h3 class="card-title">Product</h3>
 
-                <a class="btn btn-success btn-sm ml-2" href="">
+                <a class="btn btn-success btn-sm ml-2" href="/admin/product/add">
                     <i class="fas fa-plus">
                     </i>
                     Tambah Produk

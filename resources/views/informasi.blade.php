@@ -45,17 +45,13 @@
                         </div><!-- /input-group -->
                     </div>
                 <hr style="margin:0px;">
-				<?php
 
-				foreach ($semuaberita as $berita){
-
-				?>
 				<div class="card" style="padding-bottom: 0; border: none; margin-top: 10px;">
 					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
 						<div class="card border-0">
 							<div class="row g-1">
 								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="assets/images/<?= $berita['gambar_berita'] ?>" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
+									<img src="assets/images/" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
 								</div>
 								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
 									<div class="card-body mb-3 text-media " style="padding:0px;">
@@ -65,10 +61,10 @@
 											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
 										</p>
 										<h4 class="" style="font-weight: 700;">
-											<a href="detail_berita.php" class="text-decoration-none hover-costume text-overflow: ellipsis;" style="font-weight: bold; padding-top: 10px;"><?= $berita['judul_berita'] ?>
+											<a href="detail_berita.php" class="text-decoration-none hover-costume text-overflow: ellipsis;" style="font-weight: bold; padding-top: 10px;">
 											</a>
 										</h4>
-										<p class="text-truncate"><?= $berita['isi_berita'] ?></p>
+										<p class="text-truncate"></p>
 										<a href="detail_berita.php" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
 									</div>
 								</div>
@@ -76,9 +72,6 @@
 						</div>
 					</div>
 				</div>
-				<?php
-					}
-				?>
 				<div class="card" style="padding-bottom: 0; border: none;">
 					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
 						<div class="card border-0">
