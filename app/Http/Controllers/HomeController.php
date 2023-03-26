@@ -37,6 +37,13 @@ class HomeController extends Controller
         return view('partner', $data);
     }
 
+    public function detail_partner(Request $request)
+    {
+        $data['detail'] = Partner::findOrFail($request->id);
+        $data['detail'] = Partner::find($request->id);
+        return view('detail_partner', $data);
+    }
+
     public function contact()
     {
         return view('contact');
@@ -59,10 +66,7 @@ class HomeController extends Controller
         return view('produk', $data);
     }
 
-    public function detail_partner()
-    {
-        return view('detail_partner');
-    }
+
 
     public function visi_misi()
     {

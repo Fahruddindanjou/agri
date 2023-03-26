@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\Banner;
+use App\Models\Partner;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,8 @@ class AdminController extends Controller
 
     public function partner()
     {
-        return view('admin.partner');
+        $data['partners'] = Partner::all();
+        return view('admin.partner', $data);
     }
 
     public function partner_add()

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CRUD\BeritaController;
 use App\Http\Controllers\CRUD\ProductController;
 use App\Http\Controllers\CRUD\BannerController;
+use App\Http\Controllers\CRUD\PartnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Berita;
@@ -34,7 +35,7 @@ Route::get('/visi_misi' , [HomeController::class , 'visi_misi']);
 Route::get('/sejarah' , [HomeController::class , 'sejarah']);
 Route::get('/struktur_organisasi' , [HomeController::class , 'struktur_organisasi']);
 Route::get('/detail_produk' , [HomeController::class , 'detail_produk']);
-Route::get('/detail_partner' , [HomeController::class , 'detail_partner']);
+Route::get('/detail_partner/{id}' , [HomeController::class , 'detail_partner']);
 Route::get('/berita/{id}' , [HomeController::class , 'detail_berita']);
 
 // admin
@@ -72,6 +73,15 @@ Route::group(['prefix' => '/admin'] , function()
         Route::get('/edit/{id}' , [BannerController::class , 'edit']);
         Route::post('/edit/{id}' , [BannerController::class , 'update']);
         Route::get('/delete/{id}' , [BannerController::class , 'destroy']);
+    });
+
+    Route::group(['prefix' => '/partner'] , function(){
+        Route::get('/' , [PartnerController::class , 'index']);
+        Route::get('/add' , [PartnerController::class, 'create']);
+        Route::post('/add' , [PartnerController::class , 'store']);
+        Route::get('/edit/{id}' , [PartnerController::class , 'edit']);
+        Route::post('/edit/{id}' , [PartnerController::class , 'update']);
+        Route::get('/delete/{id}' , [PartnerController::class , 'destroy']);
     });
     // Route::get('/logout',[AuthController::class , 'logout']);
 

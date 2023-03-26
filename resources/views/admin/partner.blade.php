@@ -5,8 +5,13 @@
 <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Product</h3>
+                <h3 class="card-title">Partner</h3>
 
+                <a class="btn btn-success btn-sm ml-2" href="{{'/admin/partner/add'}}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Tambah Partner
+                </a>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -28,36 +33,33 @@
                       <th>Nama Partner</th>
                       <th>Deskripsi</th>
                       <th>Url</th>
+                      <th>Create</th>
                       <th class="text-center">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
 
-                        foreach ($partners as $partner){
-
-                    ?>
+                        @foreach ($partner as $part)
                     <tr>
-                      <td><?= $partner['id']?></td>
-                      <td><?= $partner['nama_partner']?></td>
-                      <td><?= $partner['deskripsi']?></td>
-                      <td><?= $partner['url'] ?></td>
+                      <td>{{$part->id}}</td>
+                      <td>{{$part->name}}</td>
+                      <td>{{substr(strip_tags($part->deskripsi),0,50)}}...</td>
+                      <td>{{$part->url}}</td>
+                      <td>{{$part->created_at}}</td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="/admin/partner/edit/{{$part->id}}">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="<?= base_url('admin/partner/' . $partner['id']) ?>" name="delete_partner">
+                          <a class="btn btn-danger btn-sm" href="/admin/partner/delete/{{$part->id}}">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
                       </td>
                     </tr>
-                    <?php
-                        }
-                    ?>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

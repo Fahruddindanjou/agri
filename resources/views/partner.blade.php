@@ -47,10 +47,10 @@
                         </div>
                         <div class="card-body text-center">
                             <h4>{{$par->name}}</h4>
-                            <p class="mb-1">  {{$par->deskripsi}}<br>
+                            <p class="mb-1">  {{substr(strip_tags($par->deskripsi),0,30)}}...<br>
                                 <a href="#" class="text-green">{{$par->url}}</a>
                             </p>
-                            <a href="/detail_partner" class="text-green fw-bold">Show Partner <i class="fa fa-arrow-right"></i></a>
+                            <a href="/detail_partner/{{$par->id}}" class="text-green fw-bold">Show Partner <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

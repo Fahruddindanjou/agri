@@ -4,17 +4,14 @@ namespace App\Http\Controllers\CRUD;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Produk;
+use App\Models\Partner;
 
-class ProductController extends Controller
+class PartnerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $data['artikel'] = Produk::all();
-        return view('admin.product',$data);
+        $data['partner'] = Partner::all();
+        return view('admin.partner',$data);
     }
 
     /**
@@ -25,9 +22,7 @@ class ProductController extends Controller
         $data['isEdit'] = false;
         $data['edit'] = null;
 
-
-
-        return view('admin.product_add' , $data);
+        return view('admin.partner_add' , $data);
     }
 
     /**
@@ -47,18 +42,16 @@ class ProductController extends Controller
         // $image->storeAs('public', $image->hashName());
 
         // //create post
-        // Produk::create([
+        // Partner::create([
         //     'image'     => $image->hashName(),
         //     'title'     => $request->title,
         //     'content'   => $request->content
         // ]);
 
-        $Produk = new Produk();
-        $Produk->title = $request->title;
-        $Produk->kategori_id = $request->kategori_id;
-        $Produk->url_yt = autoEmbed($request->url_yt);
-        $Produk->content = $request->content;
-        $Produk->type = $request->type;
+        $partner = new Partner();
+        $partner->name = $request->name;
+        $partner->deskripsi = $request->deskripsi;
+        $partner->url = $request->url;
 
         /** upload image */
         if($request->hasFile('image'))
@@ -71,9 +64,9 @@ class ProductController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $Produk->image = $url;
+            $partner->image = $url;
         }else{
-            $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $partner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
         // if ($request->hasFile('image')) {
@@ -81,16 +74,16 @@ class ProductController extends Controller
         //     $fileName = time() . '_' . $file->getClientOriginalName();
         //     $filePath = $file->storeAs('/images', $fileName);
 
-        //     $Produk->image = $fileName;
+        //     $partner->image = $fileName;
         // } else {
-        //     $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+        //     $Partner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         // }
 
 
 
-        $Produk->save();
+        $partner->save();
 
-        return redirect('/admin/product')->with('success' , 'Berhasil menambah Produk');
+        return redirect('/admin/partner')->with('success' , 'Berhasil menambah Partner');
     }
 
     /**
@@ -106,9 +99,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $data['edit'] = Produk::find($id);
+        $data['edit'] = Partner::find($id);
         $data['isEdit'] = true;
-        return view('admin.product_add',$data);
+        return view('admin.partner_add',$data);
     }
 
     /**
@@ -116,12 +109,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $Produk = Produk::find($id);
-        $Produk->title = $request->title;
-        $Produk->kategori_id = $request->kategori_id;
-        $Produk->url_yt = autoEmbed($request->url_yt);
-        $Produk->content = $request->content;
-        $Produk->type = $request->type;
+        $partner = new Partner();
+        $partner->name = $request->name;
+        $partner->deskripsi = $request->deskripsi;
+        $partner->url = $request->url;
 
         /** upload image */
         if($request->hasFile('image'))
@@ -134,14 +125,14 @@ class ProductController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $Produk->image = $url;
+            $partner->image = $url;
         }else{
-            $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $partner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
-        $Produk->save();
+        $partner->save();
 
-        return redirect('/admin/product')->with('success' , 'Berhasil update Produk');
+        return redirect('/admin/partner')->with('success' , 'Berhasil update Partner');
     }
 
     /**
@@ -149,9 +140,9 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $delete = Produk::find($id);
+        $delete = Partner::find($id);
         $delete->delete();
 
-        return redirect('/admin/product')->with('success' , 'Success delete data');
+        return redirect('/admin/partner')->with('success' , 'Success delete data');
     }
 }
