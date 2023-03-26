@@ -21,7 +21,7 @@
 		  <div class="item @if($index == 0 ) active @endif">
 			<img src="{{$banner->image}}" class="img-hp slider-bg" style="filter: brightness(35%);">
 			<div class="carousel-caption">
-				<h4 style="font-weight: 300; font-size: 20pt;">{{$banner->nama_banner}}</h4>
+				<h4 style="font-weight: 300; font-size: 20pt;">{{$banner->name}}</h4>
 				<h5 class="text-size">PERUMDA ANEKA USAHA</h5>
 				<h5 class="text-size">KABUPATEN JEPARA</h5>
 				<button href="" class="btn btn-lg hvr-sweep-to-top chat-btn text-white">
@@ -175,7 +175,7 @@
 													<a href="detail_berita.php" class="text-decoration-none hover-costume text-overflow: ellipsis;" style="font-weight: bold; padding-top: 10px;">{{$b->title}}
 													</a>
 												</h4>
-												<p class="text-truncate">{{$b->content}}</p>
+												<p class="text-truncate">{{substr(strip_tags($b->content),0,100)}}...</p>
 												<a href="detail_berita.php" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
 											</div>
 										</div>
@@ -195,7 +195,7 @@
 					<div class="card scroll-news" style="background-color: white; padding-top: 10px; border: none;">
 						<div class="" style="display: inline-flex; justify-content: center;">
 							<a href="" style=" width: 19%; margin-right: 20px; margin-top: 8px;">
-								<img src="assets/images/2.png" alt="" class="img-fluid img-rounded">
+								<img src="{{asset('images/2.png')}}" alt="" class="img-fluid img-rounded">
 							</a>
 							<div class="" style="display: inline-flex; margin-top: 15px;">
 								<a href="#" style="margin:10px;">
@@ -297,7 +297,7 @@
 		<h3 class="fw-bold">YouTube<span class="text-green"> Channel</span></h3>
 		<hr class="hr-row">
 		<div class="bg-channel" style="margin-top: 10px; border-radius: 5px;">
-            
+
             @foreach ($youtubeBerita as $yt)
 
 			<div class="card" style="padding-top:10px; background:none; border: none;">
@@ -305,7 +305,7 @@
 					<div class="row1" style="padding: 10px;">
 						<div class="col-lg-3 col-md-3 col-6">
 							<div class="card mb-3">
-								<iframe class="img-rounded" src="{{$yt->url}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
+								<iframe class="img-rounded" src="{{$yt->url_yt}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0"></iframe>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-3 col-6">
@@ -336,8 +336,8 @@
 			<h4 class="fw-normal">Berita Pertanian</h4>
 			<h3 class="fw-bold">Berita & <span class="text-green">Artikel</span></h3>
 			<hr class="hr-row">
-			@foreach($pertanianBerita as $p)
 			<div class="latest-posts-grids">
+                @foreach($pertanianBerita as $p)
 				<div class="col-md-3 latest-posts-grid animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
 					<div class="latest-posts-grid-left">
 						<ul class="post-date">
@@ -351,22 +351,22 @@
 						</ul>
 					</div>
 					<div class="latest-posts-grid-right">
-						<a href="#"><img src="{{$p->image}}" alt=" " class="img-responsive"></a>
+						<a href="#"><img src="{{$p->image}}" name="image" alt=" " class="img-responsive"></a>
 						<h4><a href="/berita/{{$p->id}}">{{$p->title}}</a></h4>
 						<ul>
-							<li>April 15, 2016 <i>|</i></li>
+							<li>{{$p->created_at}} <i>|</i></li>
 							<li><a href="#">5 Comments</a> <i>|</i></li>
 							<li><a href="#">15 Views</a></li>
 						</ul>
 						<p>{{$p->content}}</p>
 						<div class="more">
-							<a href="detail_berita.php" class="hvr-sweep-to-top">Read More...</a>
+							<a href="/berita/{{$p->id}}" class="hvr-sweep-to-top">Read More...</a>
 						</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				@endforeach
 				<div class="clearfix"> </div>
+				@endforeach
 			</div>
 		</div>
 	</div>

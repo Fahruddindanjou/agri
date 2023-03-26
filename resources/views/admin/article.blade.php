@@ -29,9 +29,10 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                    <th>Type</th>
+                      <th>Gambar</th>
+                        <th>Type</th>
                       <th>Judul Artikel</th>
-                 
+                        <th>Youtube URL</th>
                       <th>Kategori</th>
                       <th>Published</th>
                       <th class="text-center">Action</th>
@@ -39,14 +40,15 @@
                   </thead>
                   <tbody>
                     @foreach ($artikel as $art)
-                        
-                    
+
+                    {{-- {{ asset('$art->image') }} --}}
                     <tr>
-                      <td>{{$art->id}}</td>
+                        <td>{{$art->id}}</td>
+                        <td><img src="{{$art->image}}" class="img-fluid" alt=""></td>
                       <td>{{$art->type}}</td>
                       <td><a href="/berita/{{$art->id}}" target="_blank">{{$art->title}}</a></td>
-                  
-                      <td>{{$art->kategori->name}}</td>
+                        <td>{{$art->url_yt}}</td>
+                      <td>{{$art->kategori?->name}}</td>
                       <td>{{$art->created_at}}</td>
                       <td class="project-actions text-right">
                           <!-- <a class="btn btn-primary btn-sm" href="#">

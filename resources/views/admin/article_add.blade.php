@@ -40,6 +40,7 @@
                   <option>informasi</option>
                   <option>main</option>
                   <option>pertanian</option>
+                  <option>Youtube</option>
                 </select>
               </div>
               <div class="form-group">

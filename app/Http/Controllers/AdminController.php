@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\Banner;
 
 class AdminController extends Controller
 {
@@ -55,5 +56,16 @@ class AdminController extends Controller
     public function tambah_anggota()
     {
         return view('admin.tambah_anggota');
+    }
+
+    public function banner()
+    {
+        $data['banner'] = Banner::all();
+        return view('admin.banner', $data);
+    }
+
+    public function banner_add()
+    {
+        return view('admin.banner_add');
     }
 }

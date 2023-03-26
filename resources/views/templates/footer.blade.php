@@ -1,4 +1,6 @@
+</div>
 <!-- footer -->
+
 <div class="footer">
 	<div class="container">
 		<div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".5s" >

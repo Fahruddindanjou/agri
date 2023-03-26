@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\CRUD;
 
 use App\Http\Controllers\Controller;
-use App\Models\Berita;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
-class BeritaController extends Controller
+class BannerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $data['artikel'] = Berita::all();
-        return view('admin.article',$data);
+        $data['banner'] = Banner::all();
+        return view('admin.banner',$data);
     }
 
     /**
@@ -27,7 +24,7 @@ class BeritaController extends Controller
 
 
 
-        return view('admin.article_add' , $data);
+        return view('admin.banner_add' , $data);
     }
 
     /**
@@ -47,18 +44,16 @@ class BeritaController extends Controller
         // $image->storeAs('public', $image->hashName());
 
         // //create post
-        // Berita::create([
+        // Banner::create([
         //     'image'     => $image->hashName(),
         //     'title'     => $request->title,
         //     'content'   => $request->content
         // ]);
 
-        $berita = new Berita();
-        $berita->title = $request->title;
-        $berita->kategori_id = $request->kategori_id;
-        $berita->url_yt = autoEmbed($request->url_yt);
-        $berita->content = $request->content;
-        $berita->type = $request->type;
+        $Banner = new Banner();
+        $Banner->name = $request->name;
+        $Banner->image = $request->image;
+        $Banner->type = $request->type;
 
         /** upload image */
         if($request->hasFile('image'))
@@ -71,9 +66,9 @@ class BeritaController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $berita->image = $url;
+            $Banner->image = $url;
         }else{
-            $berita->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $Banner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
         // if ($request->hasFile('image')) {
@@ -81,16 +76,16 @@ class BeritaController extends Controller
         //     $fileName = time() . '_' . $file->getClientOriginalName();
         //     $filePath = $file->storeAs('/images', $fileName);
 
-        //     $berita->image = $fileName;
+        //     $Banner->image = $fileName;
         // } else {
-        //     $berita->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+        //     $Banner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         // }
 
 
 
-        $berita->save();
+        $Banner->save();
 
-        return redirect('/admin/article')->with('success' , 'Berhasil menambah berita');
+        return redirect('/admin/banner')->with('success' , 'Berhasil menambah Banner');
     }
 
     /**
@@ -106,9 +101,9 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        $data['edit'] = Berita::find($id);
+        $data['edit'] = Banner::find($id);
         $data['isEdit'] = true;
-        return view('admin.article_add',$data);
+        return view('admin.banner_add',$data);
     }
 
     /**
@@ -116,14 +111,11 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $berita = Berita::find($id);
-        $berita->title = $request->title;
-        $berita->kategori_id = $request->kategori_id;
-        $berita->url_yt = autoEmbed($request->url_yt);
-        $berita->content = $request->content;
-        $berita->type = $request->type;
+        $Banner = Banner::find($id);
+        $Banner->name = $request->name;
+        $Banner->image = $request->image;
+        $Banner->type = $request->type;
 
-        /** upload image */
         if($request->hasFile('image'))
         {
             $image = $request->file('image');
@@ -134,14 +126,15 @@ class BeritaController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $berita->image = $url;
+            $Banner->image = $url;
         }else{
-            $berita->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $Banner->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
-        $berita->save();
 
-        return redirect('/admin/article')->with('success' , 'Berhasil update berita');
+        $Banner->save();
+
+        return redirect('/admin/banner')->with('success' , 'Berhasil update Banner');
     }
 
     /**
@@ -149,9 +142,9 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        $delete = Berita::find($id);
+        $delete = Banner::find($id);
         $delete->delete();
 
-        return redirect('/admin/article')->with('success' , 'Success delete data');
+        return redirect('/admin/banner')->with('success' , 'Success delete data');
     }
 }
