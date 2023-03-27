@@ -45,141 +45,35 @@
                         </div><!-- /input-group -->
                     </div>
                 <hr style="margin:0px;">
-
+                @foreach($informasiBerita as $i)
 				<div class="card" style="padding-bottom: 0; border: none; margin-top: 10px;">
 					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
 						<div class="card border-0">
 							<div class="row g-1">
 								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="assets/images/" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
+									<img src="{{$i->image}}" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
 								</div>
 								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
 									<div class="card-body mb-3 text-media " style="padding:0px;">
 										<p class="card-text">
 											<a href="#" class="text-decoration-none pe-3 text-muted" style="font-size: 10pt; padding-bottom: 10px; padding-top:0px;">
-												<span class="fw-bold" style="color: #90B82D;">Bidang</span> Bisnis</a>
+												<span class="fw-bold" style="color: #90B82D;">Bidang</span> {{$i->kategori?->name}}</a>
 											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
 										</p>
 										<h4 class="" style="font-weight: 700;">
-											<a href="detail_berita.php" class="text-decoration-none hover-costume text-overflow: ellipsis;" style="font-weight: bold; padding-top: 10px;">
-											</a>
+											<a href="/berita/{{$i->id}}" class="text-decoration-none hover-costume text-overflow: ellipsis;" style="font-weight: bold; padding-top: 10px;">
+											{{substr(strip_tags($i->title),0,150)}}...
+                                            </a>
 										</h4>
-										<p class="text-truncate"></p>
-										<a href="detail_berita.php" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
+										<p class="text-truncate">{{substr(strip_tags($i->content),0,100)}}...</p>
+										<a href="/berita/{{$i->id}}" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="card" style="padding-bottom: 0; border: none;">
-					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
-						<div class="card border-0">
-							<div class="row g-1">
-								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="https://images.unsplash.com/photo-1454179083322-198bb4daae41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
-								</div>
-								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
-									<div class="card-body mb-3 text-media " style="padding:0px;">
-										<p class="card-text">
-											<a href="#" class="text-decoration-none pe-3 text-muted" style="font-size: 10pt; padding-bottom: 10px; padding-top:0px;">
-												<span class="fw-bold" style="color: #90B82D;">Bidang</span> Bisnis</a>
-											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
-										</p>
-										<h4 class="" style="font-weight: 700;">
-											<a href="detail_berita.php" class="text-decoration-none hover-costume" style="font-weight: bold; padding-top: 10px;">Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishin ...
-											</a>
-										</h4>
-										<p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the ...
-										</p>
-										<a href="detail_berita.php" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="card" style="padding-bottom: 0; border: none;">
-					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
-						<div class="card border-0">
-							<div class="row g-1">
-								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="assets/images/tembakau2.jpg" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
-								</div>
-								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
-									<div class="card-body mb-3 text-media " style="padding:0px;">
-										<p class="card-text">
-											<a href="#" class="text-decoration-none pe-3 text-muted" style="font-size: 10pt; padding-bottom: 10px; padding-top:0px;">
-												<span class="fw-bold" style="color: #90B82D;">Bidang</span> Bisnis</a>
-											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
-										</p>
-										<h4 class="" style="font-weight: 700;">
-											<a href="detail_berita.php" class="text-decoration-none hover-costume" style="font-weight: bold; padding-top: 10px;">Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishin ...
-											</a>
-										</h4>
-										<p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the ...
-										</p>
-										<a href="detail_berita.php" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="card" style="padding-bottom: 0; border: none;">
-					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
-						<div class="card border-0">
-							<div class="row g-1">
-								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="assets/images/tembakau.jpg" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
-								</div>
-								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
-									<div class="card-body mb-3 text-media " style="padding:0px;">
-										<p class="card-text">
-											<a href="#" class="text-decoration-none pe-3 text-muted" style="font-size: 10pt; padding-bottom: 10px; padding-top:0px;">
-												<span class="fw-bold" style="color: #90B82D;">Bidang</span> Bisnis</a>
-											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
-										</p>
-										<h4 class="" style="font-weight: 700;">
-											<a href="#" class="text-decoration-none hover-costume" style="font-weight: bold; padding-top: 10px;">Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishin ...
-											</a>
-										</h4>
-										<p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the ...
-										</p>
-										<a href="#" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="card" style="padding-bottom: 0; border: none;">
-					<div class="card-body" style="padding-bottom: 0rem; padding-top: 0rem;">
-						<div class="card border-0">
-							<div class="row g-1">
-								<div class="col-12 col-md-4 col-lg-4" style="padding:0px 0px 5px 0px;">
-									<img src="https://images.unsplash.com/photo-1454179083322-198bb4daae41?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="rounded-3 shadow-sm img-fluid w-100" style="height: 160px; object-fit: cover;filter:brightness(70%)">
-								</div>
-								<div class="col-12 col-md-8 col-lg-8 " style="height: 180px; padding:0px 15px;">
-									<div class="card-body mb-3 text-media " style="padding:0px;">
-										<p class="card-text">
-											<a href="#" class="text-decoration-none pe-3 text-muted" style="font-size: 10pt; padding-bottom: 10px; padding-top:0px;">
-												<span class="fw-bold" style="color: #90B82D;">Bidang</span> Bisnis</a>
-											<span class="float-end"><i class="fa fa-ellipsis-vertical"></i></span>
-										</p>
-										<h4 class="" style="font-weight: 700;">
-											<a href="#" class="text-decoration-none hover-costume" style="font-weight: bold; padding-top: 10px;">Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishin ...
-											</a>
-										</h4>
-										<p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the ...
-										</p>
-										<a href="#" class="hover-costume"><small><b>Lanjutkan membaca »</b></small></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                @endforeach
 		</div>
 			<div class="col-md-4 col-12">
 				<!-- popular post -->

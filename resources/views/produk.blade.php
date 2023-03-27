@@ -75,18 +75,18 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="ternak">
                         @foreach($produk1 as $produks)
-                        @if($produks['id'] == "2")
+                        @if($produks['id'] == 9)
                             <a href="detail_produk.php" class="text-dark">
                             <div class="col-md-4 mb-1">
                                     <div class="card shadow-sm" style="border-radius: 5px;">
                                         <div style=" justify-items: center;">
-                                            <img src="images/apel.jpg" class="card-img-top " style="max-height: 50%;">
+                                            <img src="{{$produks->image}}" class="card-img-top " style="max-height: 50%;">
                                         </div>
                                         <div class="card-body text-left">
                                             <p class="fw-bold text-dark" style="margin-bottom: 3px;">Rp. {{$produks->harga}}</p>
-                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;">  / Ekor</p>
-                                            <p class=" text-dark"><i class="fa fa-location-dot"></i> </p>
-                                            <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  | rb </p>
+                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;">{{$produks->terjual}} </p>
+                                            <p class=" text-dark"><i class="fa fa-location-dot"></i>{{$produks->lokasi}} </p>
+                                            <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  {{$produks->rating}}| {{$produks->terjual}} rb </p>
                                         </div>
                                     </div>
                                 </div>
@@ -96,64 +96,48 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sayuran">
-                        <?php
-
-                            // foreach($koneksi->get_produk() as $produks){
-
-                        ?>
+                        @foreach($produk1 as $produks)
+                        @if($produks['id'] == 8)
                         <?php //if($produks['id'] == "1"){?>
-                        <div class="col-md-4 mb-1">
                             <a href="detail_produk.php" class="text-dark">
-                                <div class="card shadow-sm" style="border-radius: 5px;">
-                                    <div style=" justify-items: center;">
-                                        <img src="{{asset('images/')}}" alt="" class="card-img-top " style="max-height: 50%;">
+                                <div class="col-md-4 mb-1">
+                                        <div class="card shadow-sm" style="border-radius: 5px;">
+                                            <div style=" justify-items: center;">
+                                                <img src="{{$produks->image}}" class="card-img-top " style="max-height: 50%;">
+                                            </div>
+                                            <div class="card-body text-left">
+                                                <p class="fw-bold text-dark" style="margin-bottom: 3px;">Rp. {{$produks->harga}}</p>
+                                                <p class="fw-bold text-dark" style="margin-bottom: 3px;">{{$produks->terjual}} </p>
+                                                <p class=" text-dark"><i class="fa fa-location-dot"></i>{{$produks->lokasi}} </p>
+                                                <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  {{$produks->rating}}| {{$produks->terjual}} rb </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-body text-left">
-                                        <p class="fw-bold text-dark" style="margin-bottom: 3px;"></p>
-                                        <p class="fw-bold text-dark" style="margin-bottom: 3px;">  / kg</p>
-                                        <p class=" text-dark"><i class="fa fa-location-dot"></i> </p>
-                                        <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  | rb </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <?php
-
-                       // }
-
-                        ?>
-
-                        <?php //} ?>
+                                </a>
+                        @endif
+                        @endforeach
                     </div>
                     <div role="tabpanel" class="tab-pane" id="buah">
-                        <?php
-
-                            //foreach($koneksi->get_produk() as $produks){
-
-                        ?>
-                        <?php //if($produks['id'] == "3"){?>
-                        <div class="col-md-4 mb-1">
+                        @foreach($produk1 as $produks)
+                        @if($produks['id'] == 6)
+                        <?php //if($produks['id'] == "1"){?>
                             <a href="detail_produk.php" class="text-dark">
-                                <div class="card shadow-sm" style="border-radius: 5px;">
-                                    <div style=" justify-items: center;">
-                                        <img src="{{asset('images/')}}" alt="" class="card-img-top " style="max-height: 50%;">
+                                <div class="col-md-4 mb-1">
+                                        <div class="card shadow-sm" style="border-radius: 5px;">
+                                            <div style=" justify-items: center;">
+                                                <img src="{{$produks->image}}" class="card-img-top " style="max-height: 50%;">
+                                            </div>
+                                            <div class="card-body text-left">
+                                                <p class="fw-bold text-dark" style="margin-bottom: 3px;">Rp. {{$produks->harga}}</p>
+                                                <p class="fw-bold text-dark" style="margin-bottom: 3px;">{{$produks->terjual}} </p>
+                                                <p class=" text-dark"><i class="fa fa-location-dot"></i>{{$produks->lokasi}} </p>
+                                                <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  {{$produks->rating}}| {{$produks->terjual}} rb </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-body text-left">
-                                        <p class="fw-bold text-dark" style="margin-bottom: 3px;"></p>
-                                        <p class="fw-bold text-dark" style="margin-bottom: 3px;"> / kg</p>
-                                        <p class=" text-dark"><i class="fa fa-location-dot"></i> </p>
-                                        <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  | rb+ </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <?php
-
-                        //}
-
-                        ?>
-
-                        <?php //} ?>
+                                </a>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

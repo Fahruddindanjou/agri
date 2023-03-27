@@ -2,7 +2,7 @@
 
 
 @section('content')
-<form method="POST" @if($isEdit) action="/admin/product/edit/{{$edit->id}}" @else action="/admin/product/add" @endif >
+<form method="POST" @if($isEdit) action="/admin/product/edit/{{$edit->id}}" @else action="/admin/product/add" @endif enctype="multipart/form-data" >
 
     @csrf
     <div class="col-12">
@@ -28,19 +28,43 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputName">Jumlah / Stock</label>
-                    <input type="text" id="terjual" class="form-control" @if($isEdit) value="{{$edit->terjual}}" @endif>
+                    <label for="inputName">Harga</label>
+                    <input type="text" name="harga" class="form-control" @if($isEdit) value="{{$edit->harga}}" @endif>
+                </div>
+                <div class="form-group">
+                    <label for="inputName">Terjual</label>
+                    <input type="text" name="terjual" class="form-control" @if($isEdit) value="{{$edit->terjual}}" @endif>
                 </div>
                 <div class="form-group">
                     <label for="inputName">Deskripsi</label>
-                    <textarea class="form-control" id="#" rows="3">
+                    <textarea class="form-control" id="#" rows="3" name="deskripsi">
                         @if($isEdit) {{$edit->deskripsi}} @endif
                     </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputName">URL Website</label>
+                    <input type="text"  name="url" class="form-control" @if($isEdit) value="{{$edit->url}}" @endif>
+                </div>
+                <div class="form-group">
+                    <label for="inputName">Rating</label>
+                    <input type="text"  name="rating" class="form-control" @if($isEdit) value="{{$edit->rating}}" @endif>
                 </div>
                 <div class="form-group">
                     <label for="inputName">Lokasi</label>
                     <input type="text" name="lokasi" class="form-control" @if($isEdit) value="{{$edit->lokasi}}" @endif>
                 </div>
+                <div class="form-group">
+                    <label for="inputName">User</label>
+                    <input type="text" name="user_id" class="form-control" @if($isEdit) value="{{$edit->user_id}}" @endif>
+                </div>
+                <div class="form-group">
+                    <label for="inputStatus">Type Artikel</label>
+                    <select id="inputStatus" class="form-control custom-select" name="type">
+                      <option selected disabled>Select one</option>
+                      <option>best</option>
+                      <option>normal</option>
+                    </select>
+                  </div>
                 <div class="form-group">
                     <label for="inputStatus">Kategori</label>
                     <select id="inputStatus" name="kategori_id" class="form-control custom-select">
@@ -51,8 +75,8 @@
                                 @if($kat->id == $edit->kategori_id)
                                 <option value="{{$kat->id}}" selected>{{$kat->name}}</option>
                                 @endif
-                            <option value="{{$kat->id}}">{{$kat->name}}</option>
-                            @endif
+                                @endif
+                                <option value="{{$kat->id}}">{{$kat->name}}</option>
                         @endforeach
                     </select>
                   </div>

@@ -11,7 +11,7 @@
                     <h3 class="fw-bold" style="color: white;">Tentang Kami</h3>
                     <ul class="breadcrumb" style="padding-top: 5px;">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
                             Tentang Kami
@@ -45,7 +45,7 @@
                         <div class="card-body text-center">
                             <h4>TENTANG AGRI BISNIS</h4>
                             <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, est.</p>
-                            <a href="sejarah.php" class="text-green fw-bold">Read More <i class="fa fa-arrow-right"></i></a>
+                            <a href="/sejarah" class="text-green fw-bold">Read More <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="card-body text-center">
                             <h4>STRUKTUR ORGANISASI</h4>
                             <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, est.</p>
-                            <a href="struktur_organisasi.php" class="text-green fw-bold">Read More  <i class="fa fa-arrow-right"></i></a>
+                            <a href="/struktur_organisasi" class="text-green fw-bold">Read More  <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <div class="card-body text-center">
                             <h4>VISI & MISI</h4>
                             <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, est.</p>
-                            <a href="visi_misi.php" class="text-green fw-bold">Read More  <i class="fa fa-arrow-right"></i></a>
+                            <a href="/visi_misi" class="text-green fw-bold">Read More  <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -12,10 +12,10 @@
 				<h3 class="fw-bold" style="color: white;">Informasi</h3>
 				<ul class="breadcrumb" style="padding-top: 5px;">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="/">Home</a>
 					</li>
 					<li>
-						Informasi
+						{{$detail->kategori?->name}}
 					</li>
 				</ul>
 			</div>
@@ -28,31 +28,21 @@
     <div class="container">
         <div class="col-md-8 single-left">
             <div class="single-left1">
-                <img src="assets/images/tembakau2.jpg" alt=" " class="img-responsive animated wow slideInUp" data-wow-delay=".5s" />
-                <h3 class="animated wow slideInLeft" data-wow-delay=".5s" style="margin: 0em;">Sed ut perspiciatis unde omnis iste natus error sit</h3>
-                <ul class="animated wow slideInUp" data-wow-delay=".5s">
+                <img src="{{$detail->image}}" alt=" " class="img-responsive animated wow slideInUp mb-3" data-wow-delay=".5s" />
+                <h2 class="animated wow slideInLeft text-center mb-3" data-wow-delay=".5s" style="margin: 0em;">{{$detail->title}}</h2>
+                <ul class="animated wow slideInUp text-center" data-wow-delay=".5s">
                     <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">Michael Smith</a></li>
                     <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">5 Tags</a></li>
                     <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="#">5 Comments</a></li>
                 </ul>
-                <p class="animated wow slideInUp" data-wow-delay=".5s">But I must explain to you how all this mistaken idea of denouncing 
-                    pleasure and praising pain was born and I will give you a complete 
-                    account of the system, and expound the actual teachings of the great 
-                    explorer of the truth, the master-builder of human happiness. 
-                    No one rejects, dislikes, or avoids pleasure itself, because it is 
-                    pleasure, but because those who do not know how to pursue pleasure 
-                    rationally encounter consequences that are extremely painful. 
-                    Nor again is there anyone who loves or pursues or desires to obtain 
-                    pain of itself, because it is pain, but because occasionally 
-                    circumstances occur in which toil and pain can procure him some great 
-                    pleasure.</p>
+                <p class="animated wow slideInUp" data-wow-delay=".5s">{{$detail->content}}</p>
             </div>
             <div class="comments">
                 <h3 class="animated wow slideInUp text-left" style="background: none;" data-wow-delay=".5s">Recent Comments</h3>
                 <div class="comments-grids">
                     <div class="comments-grid animated wow slideInUp" data-wow-delay=".5s">
                         <div class="comments-grid-left">
-                            <img src="assets/images/3.png" alt=" " class="img-responsive" />
+                            <img src="{{asset('images/3.png')}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="comments-grid-right">
                             <h4><a href="#">Adam Smith</a></h4>

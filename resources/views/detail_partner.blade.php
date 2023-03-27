@@ -12,10 +12,10 @@
                     <h3 class="fw-bold" style="color: white;">Tentang Agri Bisnis</h3>
                     <ul class="breadcrumb" style="padding-top: 5px;">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="partner.html">Partner</a>
+                            <a href="/partner">Partner</a>
                         </li>
                         <li>
                             {{$detail->name}}

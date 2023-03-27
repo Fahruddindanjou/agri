@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['artikel'] = Produk::all();
+        $data['produk'] = Produk::all();
         return view('admin.product',$data);
     }
 
@@ -35,30 +35,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //validate form
-        // $this->validate($request, [
-        //     'image'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
-        //     'title'     => 'required|min:5',
-        //     'content'   => 'required|min:10'
-        // ]);
-
-        // //upload image
-        // $image = $request->file('image');
-        // $image->storeAs('public', $image->hashName());
-
-        // //create post
-        // Produk::create([
-        //     'image'     => $image->hashName(),
-        //     'title'     => $request->title,
-        //     'content'   => $request->content
-        // ]);
-
-        $Produk = new Produk();
-        $Produk->title = $request->title;
-        $Produk->kategori_id = $request->kategori_id;
-        $Produk->url_yt = autoEmbed($request->url_yt);
-        $Produk->content = $request->content;
-        $Produk->type = $request->type;
+        
+        $produk = new Produk();
+        $produk->kategori_id = $request->kategori_id;
+        $produk->name = $request->name;
+        $produk->harga = $request->harga;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->lokasi = $request->lokasi;
+        $produk->rating = $request->rating;
+        $produk->terjual = $request->terjual;
+        $produk->url = $request->url;
+        $produk->user_id = $request->user_id;
 
         /** upload image */
         if($request->hasFile('image'))
@@ -71,9 +58,9 @@ class ProductController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $Produk->image = $url;
+            $produk->image = $url;
         }else{
-            $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
         // if ($request->hasFile('image')) {
@@ -81,14 +68,14 @@ class ProductController extends Controller
         //     $fileName = time() . '_' . $file->getClientOriginalName();
         //     $filePath = $file->storeAs('/images', $fileName);
 
-        //     $Produk->image = $fileName;
+        //     $produk->image = $fileName;
         // } else {
-        //     $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+        //     $produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         // }
 
 
 
-        $Produk->save();
+        $produk->save();
 
         return redirect('/admin/product')->with('success' , 'Berhasil menambah Produk');
     }
@@ -116,12 +103,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $Produk = Produk::find($id);
-        $Produk->title = $request->title;
-        $Produk->kategori_id = $request->kategori_id;
-        $Produk->url_yt = autoEmbed($request->url_yt);
-        $Produk->content = $request->content;
-        $Produk->type = $request->type;
+        $produk = new Produk();
+        $produk->kategori_id = $request->kategori_id;
+        $produk->name = $request->name;
+        $produk->harga = $request->harga;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->lokasi = $request->lokasi;
+        $produk->rating = $request->rating;
+        $produk->terjual = $request->terjual;
+        $produk->url = $request->url;
+        $produk->user_id = $request->user_id;
 
         /** upload image */
         if($request->hasFile('image'))
@@ -134,12 +125,12 @@ class ProductController extends Controller
             $image->move($path , $filename);
 
             // save image
-            $Produk->image = $url;
+            $produk->image = $url;
         }else{
-            $Produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
+            $produk->image = 'https://via.placeholder.com/700x400.png/008855?text=No+image';
         }
 
-        $Produk->save();
+        $produk->save();
 
         return redirect('/admin/product')->with('success' , 'Berhasil update Produk');
     }

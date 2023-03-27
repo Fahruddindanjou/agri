@@ -10,10 +10,10 @@
                     <h3 class="fw-bold" style="color: white;">VISI MISI</h3>
                     <ul class="breadcrumb" style="padding-top: 5px;">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="tentang_kami.php">Tentang Kami</a>
+                            <a href="/tentang_kami">Tentang Kami</a>
                         </li>
                         <li>
                             VISI MISI

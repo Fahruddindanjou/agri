@@ -358,7 +358,7 @@
 							<li><a href="#">5 Comments</a> <i>|</i></li>
 							<li><a href="#">15 Views</a></li>
 						</ul>
-						<p>{{$p->content}}</p>
+						<p>{{substr(strip_tags($p->title),0,150)}}...</p>
 						<div class="more">
 							<a href="/berita/{{$p->id}}" class="hvr-sweep-to-top">Read More...</a>
 						</div>

@@ -30,6 +30,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>Gambar</th>
                       <th>Nama Produk</th>
                       <th>Harga</th>
                       <th>Jumlah</th>
@@ -42,6 +43,7 @@
                       @foreach ($produk as $pro)
                     <tr>
                       <td>{{$pro->id}}</td>
+                      <td><img src="{{$pro->image}}" alt="" class="img-fluid w-25 h-10"></td>
                       <td>{{$pro->name}}</td>
                       <td>Rp. {{$pro->harga}}</td>
                       <td>{{$pro->terjual}} Ekor</td>
@@ -54,15 +56,15 @@
                               View
                           </a> -->
                           <a class="btn btn-info btn-sm" href="/admin/product/edit/{{$pro->id}}">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="/admin/product/delete/{{$pro->id}}">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Edit
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="/admin/product/delete/{{$pro->id}}">
+                            <i class="fas fa-trash">
+                            </i>
+                            Delete
+                        </a>
                       </td>
                     </tr>
                     @endforeach

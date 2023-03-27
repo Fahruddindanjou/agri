@@ -18,6 +18,7 @@ class HomeController extends Controller
         $data['mainBerita'] = Berita::where('type' , 'main')->get();
         $data['youtubeBerita'] = Berita::where('type' , 'youtube')->get();
         $data['pertanianBerita'] = Berita::where('type' , 'pertanian')->get();
+        $data['informasiBerita'] = Berita::where('type' , 'informasi')->get();
         return view('index',$data);
     }
 
@@ -28,7 +29,8 @@ class HomeController extends Controller
 
     public function informasi()
     {
-        return view('informasi');
+        $data['informasiBerita'] = Berita::where('type' , 'informasi')->get();
+        return view('informasi', $data);
     }
 
     public function partner()
@@ -51,6 +53,7 @@ class HomeController extends Controller
 
     public function detail_berita(Request $request)
     {
+        $data['detail'] = Berita::findOrFail($request->id);
         $data['detail'] = Berita::find($request->id);
         return view('detail_berita',$data);
     }
