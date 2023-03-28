@@ -75,7 +75,7 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="ternak">
                         @foreach($produk1 as $produks)
-                        @if($produks['id'] == 9)
+                        @if($produks['id'])
                             <a href="detail_produk.php" class="text-dark">
                             <div class="col-md-4 mb-1">
                                     <div class="card shadow-sm" style="border-radius: 5px;">
