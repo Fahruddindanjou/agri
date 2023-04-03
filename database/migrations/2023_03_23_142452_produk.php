@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kategori_id');
             $table->string('user_id');
+            $table->integer('produk_id');
             $table->string('name');
             $table->integer('harga');
             $table->string('image');

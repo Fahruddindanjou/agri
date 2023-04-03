@@ -40,7 +40,8 @@
                     <div class="card-body">
                         <div style="display: flex;">
                             <ul class="nav nav-pills" role="tablist">
-                                <li role="presentation" class="active" style="margin:0px;"><a href="#ternak" class="text-green" role="tab" data-toggle="tab"><i class="fa fa-cow"></i> Ternak</a></li>
+                                <li role="presentation" class="active" style="margin:0px;"><a href="#all" class="text-green" role="tab" data-toggle="tab"><i class="fa fa-cow"></i> All</a></li>
+                                <li role="presentation" style="margin:0px;"><a href="#ternak" class="text-green" role="tab" data-toggle="tab"><i class="fa fa-cow"></i> Ternak</a></li>
                                 <li role="presentation"><a href="#sayuran" class="text-green" role="tab" data-toggle="tab"><i class="fa fa-leaf"></i> Sayuran</a></li>
                                 <li role="presentation"><a href="#buah" class="text-green" role="tab" data-toggle="tab"><i class="fa fa-lemon-o"></i> Buah</a></li>
                             </ul>
@@ -73,9 +74,32 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="all">
+                        @foreach($produk1 as $produks)
+                        @if($produks['id'] )
+                            <a href="detail_produk.php" class="text-dark">
+                            <div class="col-md-4 mb-1">
+                                    <div class="card shadow-sm" style="border-radius: 5px;">
+                                        <div style=" justify-items: center;">
+                                            <img src="{{$produks->image}}" class="card-img-top " style="max-height: 50%;">
+                                        </div>
+                                        <div class="card-body text-left">
+                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;">Rp. {{$produks->harga}}</p>
+                                            <p class="fw-bold text-dark" style="margin-bottom: 3px;">{{$produks->terjual}} </p>
+                                            <p class=" text-dark"><i class="fa fa-location-dot"></i>{{$produks->lokasi}} </p>
+                                            <p style="color: #2525259c;"><i class="fa fa-star" style="font-size: smaller; color: gold;"></i>  {{$produks->rating}}| {{$produks->terjual}} rb </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        @endif
+                       @endforeach
+                    </div>
+
                     <div role="tabpanel" class="tab-pane active" id="ternak">
                         @foreach($produk1 as $produks)
-                        @if($produks['id'])
+                        @if($produks['produk_id'] == 1)
                             <a href="detail_produk.php" class="text-dark">
                             <div class="col-md-4 mb-1">
                                     <div class="card shadow-sm" style="border-radius: 5px;">
@@ -97,7 +121,7 @@
 
                     <div role="tabpanel" class="tab-pane" id="sayuran">
                         @foreach($produk1 as $produks)
-                        @if($produks['id'] == 8)
+                        @if($produks['produk_id'] == 2)
                         <?php //if($produks['id'] == "1"){?>
                             <a href="detail_produk.php" class="text-dark">
                                 <div class="col-md-4 mb-1">
@@ -119,7 +143,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane" id="buah">
                         @foreach($produk1 as $produks)
-                        @if($produks['id'] == 6)
+                        @if($produks['produk_id'] == 3)
                         <?php //if($produks['id'] == "1"){?>
                             <a href="detail_produk.php" class="text-dark">
                                 <div class="col-md-4 mb-1">
